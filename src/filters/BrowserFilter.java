@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 @WebFilter(filterName = "filters.BrowserFilter")
 public class BrowserFilter implements Filter {
     public void destroy() {
+        System.out.println("Browser filter destroyed");
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
@@ -19,18 +20,18 @@ public class BrowserFilter implements Filter {
 
         String user_agent = request.getHeader("user-agent");
 
-        if (user_agent.contains("Firefox")){
+        if (user_agent.contains("Firefox")) {
             chain.doFilter(req, resp);
         } else
-        try (PrintWriter writer = response.getWriter()) {
-            writer.println("Bad browser");
-        }
+            try (PrintWriter writer = response.getWriter()) {
+                writer.println("Bad browser");
+            }
 
 
     }
 
-    public void init(FilterConfig config) throws ServletException {
-        System.out.println("!!!!!!!!! FILTER STARTED");
+    public void init(FilterConfig config) {
+        System.out.println("Browser filter started");
     }
 
 }

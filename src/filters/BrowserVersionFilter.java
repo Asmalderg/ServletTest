@@ -2,18 +2,33 @@ package filters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebFilter(filterName = "filters.BrowserVersionFilter")
 public class BrowserVersionFilter implements Filter {
     public void destroy() {
-    }
-    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-        chain.doFilter(req, resp);
+        System.out.println("Firefox version checker destroyed");
     }
 
-    public void init(FilterConfig config) throws ServletException {
-        System.out.println("!!!!!!!! INIT BROWSER VERSION FILTER");
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+
+        HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletResponse response = (HttpServletResponse) resp;
+
+        String user_agent = request.getHeader("user-agent");
+        if (user_agent.endsWith("68.0")) {
+            chain.doFilter(req, resp);
+        } else
+            try (PrintWriter writer = response.getWriter()) {
+                writer.println("Bad Firefox version");
+            }
+    }
+
+    public void init(FilterConfig config) {
+        System.out.println("Firefox version checker started");
     }
 
 }
