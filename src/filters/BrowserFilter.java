@@ -19,8 +19,9 @@ public class BrowserFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse)resp;
 
         String user_agent = request.getHeader("user-agent");
-
+        System.out.println("Browser version filter passed");
         if (user_agent.contains("Firefox")) {
+
             chain.doFilter(req, resp);
         } else
             try (PrintWriter writer = response.getWriter()) {

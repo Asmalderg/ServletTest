@@ -13,19 +13,23 @@ public class BrowserVersionFilter implements Filter {
         System.out.println("Firefox version checker destroyed");
     }
 
-    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException {
 
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
 
         String user_agent = request.getHeader("user-agent");
         if (user_agent.endsWith("68.0")) {
-            chain.doFilter(req, resp);
-        } else
+            response.sendRedirect("asd");
+        } else {
             try (PrintWriter writer = response.getWriter()) {
                 writer.println("Bad Firefox version");
+            } catch (IOException e) {
+                throw new IOException("Print writer exception");
             }
+        }
     }
+
 
     public void init(FilterConfig config) {
         System.out.println("Firefox version checker started");
