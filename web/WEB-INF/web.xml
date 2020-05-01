@@ -3,28 +3,39 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <filter>
-        <filter-name>Browser_type_check</filter-name>
-        <filter-class>filters.BrowserFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>Browser_type_check</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    <filter>
-        <filter-name>Browser_version_check</filter-name>
-        <filter-class>filters.BrowserVersionFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>Browser_version_check</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    <!--    <filter>-->
+    <!--        <filter-name>Browser_type_check</filter-name>-->
+    <!--        <filter-class>filters.BrowserFilter</filter-class>-->
+    <!--    </filter>-->
+    <!--    <filter-mapping>-->
+    <!--        <filter-name>Browser_type_check</filter-name>-->
+    <!--        <url-pattern>/*</url-pattern>-->
+    <!--    </filter-mapping>-->
+    <!--    <filter>-->
+    <!--        <filter-name>Browser_version_check</filter-name>-->
+    <!--        <filter-class>filters.BrowserVersionFilter</filter-class>-->
+    <!--    </filter>-->
+
+    <!--    <filter-mapping>-->
+    <!--        <filter-name>Browser_version_check</filter-name>-->
+    <!--        <url-pattern>/*</url-pattern>-->
+    <!--    </filter-mapping>-->
     <servlet>
         <servlet-name>MainServlet</servlet-name>
         <servlet-class>servlets.ServletTest</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/added</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>SServlet</servlet-name>
+        <servlet-class>servlets.SimpleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SServlet</servlet-name>
+        <url-pattern>/simple</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

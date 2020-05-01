@@ -7,10 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>Servlet Title</title>
-  </head>
-  <body>
-    Hello from servlet
-  </body>
+<head>
+  <title>Servlet Title</title>
+</head>
+<body>
+<form action="added">
+  Enter 1-st number : <input type="text" name="num1"><br>
+  Enter 2-nd number : <input type="text" name="num2"><br>
+  <input type="submit">
+</form>
+</body>
 </html>

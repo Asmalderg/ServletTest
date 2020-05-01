@@ -20,7 +20,6 @@ public class BrowserVersionFilter implements Filter {
 
         String user_agent = request.getHeader("user-agent");
         if (user_agent.endsWith("68.0")) {
-            response.sendRedirect("asd");
         } else {
             try (PrintWriter writer = response.getWriter()) {
                 writer.println("Bad Firefox version");
