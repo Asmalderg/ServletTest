@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>Servlet Title</title>
-  </head>
-  <body>
-    Hello from servlet
-  </body>
+<head>
+  <title>Servlet Title</title>
+</head>
+<body>
+Hello from JSP
+</body>
 </html>

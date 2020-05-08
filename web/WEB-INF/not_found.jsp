@@ -12,6 +12,6 @@
 </head>
 <body>
 <h1>Error</h1>
-<p>Your page not found or not created</p>
+<p>Your page isn't found or not created</p>
 </body>
 </html>
