@@ -16,7 +16,6 @@ public class PageNotFoundServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         System.out.println("Hello from Page not found servlet");
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/not_found.jsp");
         dispatcher.forward(request, response);
